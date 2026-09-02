@@ -21,7 +21,7 @@ int main()
         remainder = originalNum % 10;
 
         int power = 1;
-        for (int i = 0; i < digits; i++)
+        for (int i = 1; i <= digits; i++)
           power = power * remainder;
         result = result + power;
         originalNum = originalNum / 10; 
