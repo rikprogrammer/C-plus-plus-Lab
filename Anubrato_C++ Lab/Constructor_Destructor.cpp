@@ -50,16 +50,14 @@ int main()
 
     Shape rect(l, b);
 
-    cout << "Rectangle perimeter: "
-         << rect.rectanglePerimeter() << endl;
+    cout << "Rectangle perimeter: " << rect.rectanglePerimeter() << endl;
 
     cout << "Enter the radius of circle: ";
     cin >> r;
 
     Shape circ(r);
 
-    cout << "Circle perimeter: "
-         << circ.circlePerimeter() << endl;
+    cout << "Circle perimeter: " << circ.circlePerimeter() << endl;
 
     return 0;
 }
