@@ -12,7 +12,7 @@ public:
         leng = l;
         brdt = b;
         rad = 0;
-    }
+    } 
 
     Shape(double r)
     {
