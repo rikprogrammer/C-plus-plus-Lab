@@ -16,8 +16,6 @@ public:
 
     Shape(double r)
     {
-        leng = 0;
-        brdt = 0;
         rad = r;
     }
 
