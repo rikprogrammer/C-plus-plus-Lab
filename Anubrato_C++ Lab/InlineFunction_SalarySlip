@@ -3,84 +3,131 @@ using namespace std;
 
 class Person
 {
-  private:	
-         char name[64];
-         int age[];
-         char addr[64];
-         double ts[];
-		 
-  public:
-        void userInputForAge()
-		{
-		  cout << "Enter name:- ";
-		  cin.ignore();
-		  cin.getline(name, 64);
-		  
-		  cout << "Enter age:- ";
-		  cin >> age;
-		  
-		  cin.ignore();
-		  
-		  cout << "Enter address:- ";
-		  cin.getline(addr, 64);
-		  
-		  cout << "Total Salary:- ";
-		  cin >> ts;
-		}		 	
-		
-		int getAge()
-		{
-		  return age;	
-		}
-		
-        //a. Inline Function to obtain the yougest and eldest age from the class "Person"
-       inline void findYougestAndEldestAge(Person p[], int n, int &ygst, int &eldst)
-       {
-       	 ygst = p[0].age;
-       	 eldst = p[0].age;
-       	 
-       	 for(i = 1; i < n; i++)
-       	 {
-       	   if(p[i].age < ygst)
-		     ygst = p[i].age;
-		   
-		   if(p[i].age > eldst)
-		     eldst = p[i].age;  	 	   	
-		 }
-	   }
-  		
-  	   //b. Developing the salary slip and display result using Constructors
-  	private:
-	   double bs, hra, da, ta;
-	
-	public:
-	       Person(double bs, double hra, double da, double ta)
-		   {
-		     this.bs = bs;
-			 this.hra = hra;
-			 this.da = da;
-			 this.ta = ta; 	
-		   }   
-	   	  
-		   void calculationDisplay()
-		   {
-		     double grs_sal = bs + hra + da + ta;
-			 
-			 cout << "-----SALARY SLIP-----" << endl;
-			 cout << "Name:- " << name << endl;
-			 cout << "Age:- " << age << endl;
-			 cout << "Address:- " << addr << endl;
-			 cout << "Basic Salary:- " << bs << endl;
-			 cout << "HRA:- " << hra << endl;
-			 cout << "DA:- " << das << endl;
-			 cout << "TA:- " << ta << endl;
-		   }	 	
+private:
+    char name[64];
+    int age;
+    char addr[64];
+
+    double bs, hra, da, ta;
+
+public:
+
+    Person()
+    {
+        bs = 0;
+        hra = 0;
+        da = 0;
+        ta = 0;
+    }
+
+    void userInput()
+    {
+        cout << "Enter name:- ";
+        cin.getline(name, 64);
+
+        cout << "Enter age:- ";
+        cin >> age;
+
+        cin.ignore();
+
+        cout << "Enter address:- ";
+        cin.getline(addr, 64);
+
+        cout << "Enter Basic Salary:- ";
+        cin >> bs;
+
+        cout << "Enter HRA:- ";
+        cin >> hra;
+
+        cout << "Enter DA:- ";
+        cin >> da;
+
+        cout << "Enter TA:- ";
+        cin >> ta;
+
+        cin.ignore();
+    }
+
+    int getAge()
+    {
+        return age;
+    }
+
+    //a. Inline function to find youngest and eldest
+    inline static void findYoungestAndEldestAge(
+        Person p[], int n, int &ygst, int &eldst)
+    {
+        ygst = p[0].age;
+        eldst = p[0].age;
+
+        for (int i = 1; i < n; i++)
+        {
+            if (p[i].age < ygst)
+                ygst = p[i].age;
+
+            if (p[i].age > eldst)
+                eldst = p[i].age;
+        }
+    }
+
+    //b. Calculate and display salary slip
+    void calculationDisplay()
+    {
+        double grs_sal = bs + hra + da + ta;
+
+        cout << "\n----- SALARY SLIP -----" << endl;
+
+        cout << "Name:- " << name << endl;
+        cout << "Age:- " << age << endl;
+        cout << "Address:- " << addr << endl;
+
+        cout << "Basic Salary:- " << bs << endl;
+        cout << "HRA:- " << hra << endl;
+        cout << "DA:- " << da << endl;
+        cout << "TA:- " << ta << endl;
+
+        cout << "Gross Salary:- " << grs_sal << endl;
+    }
 };
 
 int main()
 {
-  cout << "Enter the number of person:- ";
-  cin >> n;
-  
-  Person p[n];	
+    int n;
+
+    cout << "Enter the number of persons:- ";
+    cin >> n;
+
+    cin.ignore();
+
+    Person *p = new Person[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Enter details of Person " << i + 1 << endl;
+
+        p[i].userInput();
+    }
+
+    cout << "\n\nSALARY SLIPS\n";
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "\nSalary Slip of Person " << i + 1 << endl;
+
+        p[i].calculationDisplay();
+    }
+
+    int youngest, eldest;
+
+    Person::findYoungestAndEldestAge(
+        p, n, youngest, eldest);
+
+    cout << "\n========================================" << endl;
+    cout << "Youngest Age : " << youngest << endl;
+    cout << "Eldest Age   : " << eldest << endl;
+    cout << "========================================" << endl;
+
+    delete[] p;
+
+    return 0;
 }
