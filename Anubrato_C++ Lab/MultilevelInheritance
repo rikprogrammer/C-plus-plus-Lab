@@ -1,0 +1,93 @@
+#include <iostream>
+using namespace std;
+
+class Student
+{
+  private:
+          char name[50];
+          char sec;
+          int clss, rollno;
+  
+  public:
+         void studentDetails()
+         {
+           cout << "Enter name:- ";
+           cin >> name;
+	
+	       cout << "Enter class:- ";
+	       cin >> clss;
+	
+	       cout << "Enter class section:- ";
+	       cin >> sec;
+	
+	       cout << "Enter the Roll Number:- ";
+	       cin >> rollno;	
+         }
+         
+         void display()
+         { 
+  	       cout << "Name:- " << name << endl;
+  	       cout << "Class:- " << clss << endl;
+  	       cout << "Section:- " << sec << endl;
+  	       cout << "Roll Number:- " << rollno << endl;
+         }       
+};
+
+class Exam: public Student
+{
+  protected:
+             double mrks[6];
+  
+  public:
+          void getMarks()
+		  {
+		    cout << "Enter the marks for the 6 subjects:-" << endl;
+			for(int i = 0; i <= 5; i++)
+			  cin >> mrks[i];	
+		  }
+		  
+		  void display()
+		  {
+		    cout << "Marks:- " << endl;
+			for(int i = 0; i < 5; i++)
+			  cout << "Marks for subject " << (i+1) << ":- " << mrks[i] << endl;;	
+		  }   
+};
+
+class Result: public Exam
+{
+  private:
+           double tm = 0.0, ptg = 0.0;
+  
+  public:
+          void calculationOfTotalmarks()
+		  {
+		    for(int i = 0; i <= 5; i++)
+			  tm = tm + mrks[i];	
+		  }
+		  
+		  void percentageCalculation()
+		  {
+		    ptg = (tm/600.0) * 100.0;	
+		  }
+		  
+		  void display()
+		  {
+			cout << "Total Marks:- " << tm << endl;
+			cout << "Percentage:- " << ptg << "%" << endl;	
+		  }		   	
+};
+
+int main()
+{
+  Result obj;
+  obj.studentDetails();
+  obj.getMarks();
+  obj.calculationOfTotalmarks();
+  cout << "-----STUDENT DETAILS-----" << endl;
+  obj.Student::display();
+  obj.Exam::display();
+  obj.Result::display();
+  
+  return 0;
+}
