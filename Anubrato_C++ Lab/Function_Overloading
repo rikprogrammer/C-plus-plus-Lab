@@ -22,13 +22,13 @@ int main()
 {
   double rad, len, brd, a, b, c;
   
-  cout << "Enter the radius for the circle:- ";
+  cout << "Enter the radius of the circle:- ";
   cin >> rad;
   
-  cout << "Enter the length and breadth for the rectangle:- " << endl;
+  cout << "Enter the length and breadth of the rectangle:- " << endl;
   cin >> len >> brd;
   
-  cout << "Enter the 3 sides for the triangle:- " << endl;
+  cout << "Enter the 3 sides of the triangle:- " << endl;
   cin >> a >> b >> c;
   
   cout << "Circle Arae:- " << AREA(rad) << endl;
