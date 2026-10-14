@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double AREA(double r)
+{
+  return (3.14 * r * r);	
+}
+
+double AREA(double l, double b)
+{
+  return (l * b);	
+}
+
+double AREA(double s1, double s2, double s3)
+{
+  double s = (s1 + s2 + s3) / 2.0;
+  return (sqrt(s * (s - s1) * (s - s2) * (s - s3)));	
+}
+
+int main()
+{
+  double rad, len, brd, a, b, c;
+  
+  cout << "Enter the radius for the circle:- ";
+  cin >> rad;
+  
+  cout << "Enter the length and breadth for the rectangle:- " << endl;
+  cin >> len >> brd;
+  
+  cout << "Enter the 3 sides for the triangle:- " << endl;
+  cin >> a >> b >> c;
+  
+  cout << "Circle Perimeter:- " << AREA(rad) << endl;
+  cout << "Rectangle Perimeter:- " << AREA(len, brd) << endl;
+  if(((a + b) > c) || ((b + c) > a) || ((a + c) > b))
+    cout << "Triangle Perimeter:- " << AREA(a, b, c) << endl;  
+  else
+    cout << "Sides are invalid" << endl;
+
+  return 0;
+}
