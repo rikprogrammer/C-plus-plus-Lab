@@ -31,10 +31,10 @@ int main()
   cout << "Enter the 3 sides for the triangle:- " << endl;
   cin >> a >> b >> c;
   
-  cout << "Circle Perimeter:- " << AREA(rad) << endl;
-  cout << "Rectangle Perimeter:- " << AREA(len, brd) << endl;
+  cout << "Circle Arae:- " << AREA(rad) << endl;
+  cout << "Rectangle Area:- " << AREA(len, brd) << endl;
   if(((a + b) > c) || ((b + c) > a) || ((a + c) > b))
-    cout << "Triangle Perimeter:- " << AREA(a, b, c) << endl;  
+    cout << "Triangle Area:- " << AREA(a, b, c) << endl;  
   else
     cout << "Sides are invalid" << endl;
 
