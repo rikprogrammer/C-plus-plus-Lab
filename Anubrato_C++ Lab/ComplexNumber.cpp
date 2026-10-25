@@ -79,7 +79,7 @@ int main()
         switch (choice)
         {
             case 1:
-                cout << "\nEnter a complex number:\n";
+                cout << "Enter a complex number:\n";
                 c1.input();
 
                 ++c1;
@@ -89,7 +89,7 @@ int main()
                 break;
 
             case 2:
-                cout << "\nEnter a complex number:\n";
+                cout << "Enter a complex number:\n";
                 c1.input();
 
                 --c1;
@@ -99,7 +99,7 @@ int main()
                 break;
 
             case 3:
-                cout << "\nEnter first complex number:\n";
+                cout << "Enter first complex number:\n";
                 c1.input();
 
                 cout << "Enter second complex number:\n";
@@ -112,7 +112,7 @@ int main()
                 break;
 
             case 4:
-                cout << "\nEnter first complex number:\n";
+                cout << "Enter first complex number:\n";
                 c1.input();
 
                 cout << "Enter second complex number:\n";
@@ -128,7 +128,7 @@ int main()
                 cout << "Invalid choice!\n";
         }
 
-        cout << "\nDo you want to continue? (y/n): ";
+        cout << "Do you want to continue? (y/n): ";
         cin >> ch;
     }
     
