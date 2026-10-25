@@ -131,8 +131,6 @@ int main()
         cout << "\nDo you want to continue? (y/n): ";
         cin >> ch;
     }
-
-    cout << "\nProgram terminated.\n";
-
+    
     return 0;
 }
