@@ -74,4 +74,6 @@ int main()
   cout << endl;
   cout << "Second Number:- ";
   obj2.display();	
+
+  return 0;	
 }
